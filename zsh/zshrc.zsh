@@ -10,7 +10,6 @@ export ZSH=/Users/$THIS_USER/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bira"
-ZSH_THEME="mitsuhiko"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
