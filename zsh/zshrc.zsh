@@ -3,7 +3,7 @@ source ~/.profile
 THIS_USER=bernard
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/$THIS_USER/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

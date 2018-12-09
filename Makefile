@@ -54,6 +54,15 @@ ifneq ("$(wildcard ~/Library/Application\ Support/Code/User)","")
 	ln -s `pwd`/vscode/keybindings.json ~/Library/Application\ Support/Code/User/
 endif
 endif
+ifeq ($(shell uname),Linux)
+	echo Linux
+ifneq ("$(wildcard ~/.config/Code\ -\ OSS/User)","")
+	@echo Installing settings for VSCodium
+	rm -f ~/.config/Code\ -\ OSS/User/settings.json ~/.config/Code\ -\ OSS/User/keybindings.json
+	ln -s `pwd`/vscode/settings.json ~/.config/Code\ -\ OSS/User/
+	ln -s `pwd`/vscode/keybindings.json ~/.config/Code\ -\ OSS/User/
+endif
+endif
 
 install-terminal-settings:
 ifeq ($(shell uname),Darwin)

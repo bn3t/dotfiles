@@ -5,10 +5,10 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH="/opt/local/bin:/usr/local/bin"
 export PATH="$PATH:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
-export PATH="$PATH:/Users/bernard/java/apache-maven-3.3.3/bin:/Users/bernard/bin"
+export PATH="$PATH:$HOME/java/apache-maven-3.3.3/bin:$HOME/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.4/bin"
 export PATH="$PATH:$NPM_GLOBAL_PATH/bin"
-export PATH="$PATH:/Users/bernard/tools/google-cloud-sdk/bin"
+export PATH="$PATH:$HOME/tools/google-cloud-sdk/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 export GOPATH=$HOME/projects/golang
@@ -48,8 +48,8 @@ function macdown () { open -n -b "com.uranusjr.macdown" --args "$PWD/$1"; }
 alias xctool="/opt/local/xctool-v0.2.8/bin/xctool"
 
 ###-tns-completion-start-###
-if [ -f /Users/bernard/.tnsrc ]; then 
-    source /Users/bernard/.tnsrc 
+if [ -f $HOME/.tnsrc ]; then 
+    source $HOME/.tnsrc 
 fi
 ###-tns-completion-end-###
 
