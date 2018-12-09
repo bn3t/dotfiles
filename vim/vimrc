@@ -1,0 +1,119 @@
+" No Compatibility. That just sucks
+" especially annoying on redhat/windows/osx
+set nocompatible
+set backspace=indent,eol,start
+
+" Pathogen
+call pathogen#infect()
+
+syntax on
+
+set ai
+set mouse=a
+set cmdheight=2
+set laststatus=2
+set statusline=[%l,%v\ %P%M]\ %f\ %r%h%w\ (%{&ff})\ %{fugitive#statusline()}
+set showcmd
+set number
+
+" enable automatic title setting for terminals
+set title
+set titleold="Terminal"
+set titlestring=%F
+
+" Make git gutter less sluggish
+"let g:gitgutter_realtime = 0
+"let g:gitgutter_eager = 0
+
+colorscheme desert
+
+" Better Search
+set hlsearch
+set incsearch
+
+" shell support
+" -----------
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab
+
+" template language support (SGML / XML too)
+" ------------------------------------------
+" and disable that stupid html rendering (like making stuff bold etc)
+autocmd FileType xml,html,htmljinja,htmldjango setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html,htmljinja,htmldjango imap <buffer> <c-e> <Plug>SparkupExecute
+autocmd FileType html,htmljinja,htmldjango imap <buffer> <c-l> <Plug>SparkupNext
+autocmd FileType html setlocal commentstring=<!--\ %s\ -->
+autocmd FileType htmljinja setlocal commentstring={#\ %s\ #}
+let html_no_rendering=1
+let g:syntastic_html_checkers = []
+
+" CSS
+" ---
+autocmd FileType css setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType css setlocal commentstring=/*\ %s\ */
+autocmd FileType css noremap <buffer> <leader>r :call CSSBeautify()<cr>
+
+" Less
+" ----
+autocmd FileType less setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" Sass
+" ----
+autocmd FileType scss setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" Java
+" ----
+autocmd FileType java setlocal shiftwidth=2 tabstop=8 softtabstop=2 expandtab
+autocmd FileType java setlocal commentstring=//\ %s
+
+" C/Obj-C/C++
+autocmd FileType c setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType cpp setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType objc setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+autocmd FileType c setlocal commentstring=/*\ %s\ */
+autocmd FileType cpp,objc setlocal commentstring=//\ %s
+let c_no_curly_error=1
+let g:syntastic_cpp_include_dirs = ['include', '../include']
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_c_include_dirs = ['include', '../include']
+let g:syntastic_c_compiler = 'clang'
+
+" vim
+" ---
+autocmd FileType vim setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+
+" Javascript
+" ----------
+autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal commentstring=//\ %s
+autocmd FileType javascript noremap <buffer> <leader>r :call JsBeautify()<cr>
+autocmd FileType javascript let b:javascript_fold = 0
+let javascript_enable_domhtmlcss=1
+let g:syntastic_javascript_checkers = ['jshint'] 
+let g:syntastic_javascript_jshint_args='--config ~/.vim/extern-cfg/jshint.json'
+
+" JSON
+" ----
+autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+
+" Typescript
+" ----------
+let g:syntastic_typescript_checkers = []
+
+" cmake support
+" -------------
+autocmd BufNewFile,BufRead CMakeLists.txt setlocal ft=cmake
+
+" YAML support
+" ------------
+autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=8 softtabstop=2
+autocmd BufNewFile,BufRead *.sls setlocal ft=yaml
+
+" rust
+" ----
+autocmd FileType rust setlocal expandtab shiftwidth=4 tabstop=8 softtabstop=4
+autocmd FileType rust setlocal commentstring=//\ %s
+"let g:rustfmt_autosave = 1
+let g:syntastic_rust_checkers=[]
+"let g:racer_cmd = "/Users/mitsuhiko/.cargo/bin/racer"
+let $RUST_SRC_PATH="/Users/mitsuhiko/Development/rust/src"
+

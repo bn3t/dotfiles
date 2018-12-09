@@ -1,4 +1,4 @@
-install:  install-zsh install-git
+install:  install-zsh install-git install-vim install-vscode
 
 install-sh:
 	rm -f ~/.profile ~/.myprofile
@@ -38,6 +38,22 @@ install-python:
 dump-terminal-settings:
 	cp ~/Library/Preferences/com.apple.Terminal.plist terminal
 	plutil -convert xml1 terminal/com.apple.Terminal.plist
+
+install-vscode:
+ifeq ($(shell uname),Darwin)
+ifneq ("$(wildcard ~/Library/Application\ Support/VSCodium/User)","")
+	@echo Installing settings for VSCodium
+	rm -f ~/Library/Application\ Support/VSCodium/User/settings.json ~/Library/Application\ Support/VSCodium/User/keybindings.json
+	ln -s `pwd`/vscode/settings.json ~/Library/Application\ Support/VSCodium/User/
+	ln -s `pwd`/vscode/keybindings.json ~/Library/Application\ Support/VSCodium/User/
+endif
+ifneq ("$(wildcard ~/Library/Application\ Support/Code/User)","")
+	@echo Installing settings for VS Code
+	rm -f ~/Library/Application\ Support/Code/User/settings.json ~/Library/Application\ Support/Code/User/keybindings.json
+	ln -s `pwd`/vscode/settings.json ~/Library/Application\ Support/Code/User/
+	ln -s `pwd`/vscode/keybindings.json ~/Library/Application\ Support/Code/User/
+endif
+endif
 
 install-terminal-settings:
 ifeq ($(shell uname),Darwin)
