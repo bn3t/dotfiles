@@ -1,4 +1,4 @@
-install:  install-zsh
+install:  install-zsh install-git
 
 install-sh:
 	rm -f ~/.profile ~/.myprofile
