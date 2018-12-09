@@ -4,7 +4,7 @@
 	excludesfile = /Users/bernard/.gitignore_global
 	autocrlf = input
 	precomposeunicode = true
-	editor = /usr/local/bin/vim
+
 [color]
 	ui = auto
 [color "branch"]
