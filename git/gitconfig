@@ -1,7 +1,7 @@
 [include]
 	path = .gitconfig.local
+
 [core]
-	excludesfile = /Users/bernard/.gitignore_global
 	autocrlf = input
 	precomposeunicode = true
 
